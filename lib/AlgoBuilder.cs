@@ -19,8 +19,13 @@ public class AlgoBuilder
     {
         if(this.Year == 2023 && this.Day == 1){
             return new Algo2023Day01();
-        }else if(this.Year == 2023 && this.Day == 2){
+        }
+        else if(this.Year == 2023 && this.Day == 2){
             return new Algo2023Day02();
+        }
+        else if (this.Year == 2023 && this.Day == 3)
+        {
+            return new Algo2023Day03();
         }
 
         return null;
