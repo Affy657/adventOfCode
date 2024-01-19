@@ -11,7 +11,7 @@ namespace Lib
     internal class Algo2023Day03 : IAlgo
     {      
 
-        public string Solve(string[] input, bool isBonus = true)
+        public string Solve(string[] input, bool isBonus = false)
         {
             char notASymbole = '.';
             int result = 0;
