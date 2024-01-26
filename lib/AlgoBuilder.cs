@@ -32,6 +32,6 @@ public class AlgoBuilder
             return new Algo2023Day04();
         }
 
-        return null;
+        return new Algo2023Day01();
     }
 }
