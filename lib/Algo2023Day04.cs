@@ -12,16 +12,9 @@ namespace Lib
     {
         public string Solve(string[] input, bool isBonus = true)
         {
-            if(isBonus)
-            {
-                return bonus(input);
-            }
-            else
-            {
-                return standard(input);
-            }
-
-            string standard(string[] input)
+            return isBonus ? bonus(input) : standard(input);
+        }
+            public string standard(string[] input)
             {
                 int totalPoint = 0;
                 foreach (var line in input) 
@@ -48,10 +41,10 @@ namespace Lib
                 }
                 return totalPoint.ToString();
             }
-            string bonus(string[] input)
+            public string bonus(string[] input)
             {
 
-                List<Card> cards = new List<Card>();
+                List<Card> cardCollection = new List<Card>();
                 foreach (var line in input)
                 {
                     string[] cardGame = line.Split(':')[0].Split(' ');
@@ -73,49 +66,41 @@ namespace Lib
                         .Select(str => int.Parse(str))
                         .ToList();
                     Card card = new Card(cardId, winningNumbers, playNumbers);
-                    cards.Add(card);
+                    cardCollection.Add(card);
                 }
-                for(int i = 1;i <= 202;i ++)
-                {
-                    // rechercher la carte dont la référence est 'i'
-                    List<Card> currenCardModel = [.. cards.Where( c => c.ReferenceId == i)];
-                    
-                    // TODO résoudre le nombre de carte gagné avec ce modèle de carte
+                    int max = cardCollection.Max(x => x.ReferenceId );
+                    int min = cardCollection.Min(x => x.ReferenceId );
 
+                for (int i = min;i <= max;i ++)
+                {
+                    
+                    Card currenCardModel = cardCollection.Find( c => c.ReferenceId == i);
+                    
                     int winCount = 0;
-                    foreach(int playNumber in cards[i].Numbers)
+                    foreach(int playNumber in currenCardModel.Numbers)
                     {
-                        if (cards[i].WinningNumbers.Contains(playNumber))
+                        if (currenCardModel.WinningNumbers.Contains(playNumber))
                         {
                             winCount++;
                         }
                     }
 
-
-                    // TODO trouver les modèles de cartes suivant (i + winCount) currenCardModel.Count foi
                     for (int j = 0;j < currenCardModel.Count;j++)
                     {
-                        for(int k = i+1; k < i+winCount+1; k++)
+                        for(int nextReferenceWon = i + 1; nextReferenceWon <= i + winCount; nextReferenceWon++)
                         {
-                            // ajouter les carte doublon jusqua i+wincount
-                            if (k < 202)
+                            if (nextReferenceWon <= max)
                             {
-                                Card addCard = new Card(cards[k]);
-                                cards.Add(addCard);
+                                Card originalWon = cardCollection.Find(x => x.ReferenceId == nextReferenceWon);
+                                originalWon.Count += 1;
 
                             }
                         }
                     }
-                    
-                    
-
-                    // TODO ajouter une copie de ces carte dans la liste de référence
-                    // ex: Card copy = new Card(c);
 
                 }
-                // recompter pour chaque nouvelle card
-                return cards.Count.ToString();
+                
+                return cardCollection.Sum(x => x.Count).ToString();
             }
-        }
     }
 }
