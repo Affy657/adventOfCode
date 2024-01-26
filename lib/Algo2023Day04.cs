@@ -71,10 +71,10 @@ namespace Lib
                     int max = cardCollection.Max(x => x.ReferenceId );
                     int min = cardCollection.Min(x => x.ReferenceId );
 
-                for (int i = min;i <= max;i ++)
+                for (int currentReference = min;currentReference <= max;currentReference ++)
                 {
                     
-                    Card currenCardModel = cardCollection.Find( c => c.ReferenceId == i);
+                    Card currenCardModel = cardCollection.Find( c => c.ReferenceId == currentReference);
                     
                     int winCount = 0;
                     foreach(int playNumber in currenCardModel.Numbers)
@@ -87,7 +87,7 @@ namespace Lib
 
                     for (int j = 0;j < currenCardModel.Count;j++)
                     {
-                        for(int nextReferenceWon = i + 1; nextReferenceWon <= i + winCount; nextReferenceWon++)
+                        for(int nextReferenceWon = currentReference + 1; nextReferenceWon <= currentReference + winCount; nextReferenceWon++)
                         {
                             if (nextReferenceWon <= max)
                             {
