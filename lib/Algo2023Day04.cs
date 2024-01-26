@@ -92,7 +92,7 @@ namespace Lib
                             if (nextReferenceWon <= max)
                             {
                                 Card originalWon = cardCollection.Find(x => x.ReferenceId == nextReferenceWon);
-                                originalWon.Count += 1;
+                                originalWon.Count++;
 
                             }
                         }
