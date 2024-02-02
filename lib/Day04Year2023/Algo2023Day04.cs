@@ -1,16 +1,15 @@
-﻿using Lib.Day04Year2023;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lib
+namespace Lib.Day04Year2023
 {
     internal class Algo2023Day04 : IAlgo
     {
-        public string Solve(string[] input, bool isBonus = true)
+        public string Solve(string[] input, bool isBonus = false)
         {
             return isBonus ? bonus(input) : standard(input);
         }

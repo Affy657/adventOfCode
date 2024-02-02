@@ -1,3 +1,5 @@
+using Lib.Day04Year2023;
+using Lib.Day05Year2023;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +32,10 @@ public class AlgoBuilder
         else if (this.Year == 2023 && this.Day == 4)
         {
             return new Algo2023Day04();
+        }
+        else if (this.Year == 2023 && this.Day == 5)
+        {
+            return new Algo2023Day05();
         }
 
         return new Algo2023Day01();
