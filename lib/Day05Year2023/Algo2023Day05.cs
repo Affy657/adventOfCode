@@ -32,7 +32,7 @@ namespace Lib.Day05Year2023
             List<long> seedTransormed = new List<long>();
             foreach (long seed in seedsBuilder.Seeds)
             {
-                SeedModificator modificator = new(mapsBuilder.maps, seed);
+                SeedModificator modificator = new(mapsBuilder.CategoryList, seed);
                 seedTransormed.Add(modificator.ModifySeed());
             }
             return seedTransormed.Min().ToString();

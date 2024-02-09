@@ -8,28 +8,25 @@ namespace lib.Day05Year2023
 {
     internal class SeedModificator
     {
-        private readonly List<Map> maps;
+        private readonly List<Category> categoryList;
         private readonly long seedInput;
 
-        public SeedModificator(List<Map> maps, long seedInput) 
+        public SeedModificator(List<Category> categoryList, long seedInput) 
         {
-            this.maps = maps;
+            this.categoryList = categoryList;
             this.seedInput = seedInput;
         }
 
         public long ModifySeed()
         {
-            long SeedOutput = seedInput;
+            long seedOutput = seedInput;
 
-            foreach (Map currenMap in maps)
+            foreach (Category currenCat in categoryList)
             {
-                if (seedInput >= currenMap.StartSeed && seedInput < currenMap.StartSeed + currenMap.Range)
-                {
-                    SeedOutput = currenMap.StartMap + (seedInput - currenMap.StartSeed);
-                }
+                seedOutput = currenCat.Apply(seedOutput);
             }
 
-            return SeedOutput;
+            return seedOutput;
         }
     }
 }
