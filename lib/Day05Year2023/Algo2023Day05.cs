@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -15,27 +16,29 @@ namespace Lib.Day05Year2023
     {
         public string Solve(string[] input, bool isBonus = false)
         {
-            return isBonus ? Standard(input) : Bonus(input);
-        }
-        public string Bonus(string[] input)
-        {
-            return default;
-        }
-        public string Standard(string[] input)
-        {
-            SeedsBuilder seedsBuilder = new(input);
+            SeedsBuilder seedsBuilder = new(input, isBonus);
             seedsBuilder.Build();
 
             MapsBuilder mapsBuilder = new(input);
             mapsBuilder.Build();
 
-            List<long> seedTransormed = new List<long>();
-            foreach (long seed in seedsBuilder.Seeds)
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
+            List<long> allMinSeedTransormed = new List<long>();
+            int i = 0;
+            foreach (Seed seeds in seedsBuilder.Seeds)
             {
-                SeedModificator modificator = new(mapsBuilder.CategoryList, seed);
-                seedTransormed.Add(modificator.ModifySeed());
+                List<long> seedTransormed = new List<long>();
+                Console.WriteLine("Boucle {2} # Seed: {0}:{1}", seeds.Number, seeds.Range, ++i);
+                for(long seed = seeds.Number; seed < seeds.Number + seeds.Range; seed++)
+                {
+                    SeedModificator modificator = new(mapsBuilder.CategoryList, seed);
+                    seedTransormed.Add(modificator.ModifySeed());
+                }
+                Console.WriteLine("Terminé en: {0} ", stopwatch.Elapsed);
+                allMinSeedTransormed.Add(seedTransormed.Min());
             }
-            return seedTransormed.Min().ToString();
+            return allMinSeedTransormed.Min().ToString();   
         }
     }
 }

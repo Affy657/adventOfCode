@@ -9,13 +9,15 @@ namespace lib.Day05Year2023
     public class SeedsBuilder
     {
         private readonly string[] input;
+        private readonly bool isBonus;
 
-        public List<long> Seeds { get; set; }
+        public List<Seed> Seeds { get; set; }
 
-        public SeedsBuilder(string[] input)
+        public SeedsBuilder(string[] input, bool isBonus)
         {
             this.input = input ?? throw new ArgumentNullException(nameof(input));
-            this.Seeds = new List<long>();
+            this.Seeds = new List<Seed>();
+            this.isBonus = isBonus;
         }
 
         public void Build()
@@ -28,11 +30,27 @@ namespace lib.Day05Year2023
 
                 if (!string.IsNullOrWhiteSpace(rawListOfNumbers))
                 {
-                    var arrayOfNumbersAsString = rawListOfNumbers.Split(' ');
+                    
+                    string[] arrayOfNumbersAsString = rawListOfNumbers.Split(' ');
 
-                    var arrayOfNumbers = arrayOfNumbersAsString.Select(long.Parse);
+                    List<long> arrayOfNumbers = arrayOfNumbersAsString.Select(long.Parse).ToList();
+                    if (isBonus)
+                    {
+                        for (int i = 0; i < arrayOfNumbers.Count; i += 2)
+                        {
+                            Seed newSeed = new Seed(arrayOfNumbers[i], arrayOfNumbers[i + 1]);
+                            Seeds.Add(newSeed);
+                        }
+                    }
+                    else
+                    {
+                        foreach (var number in arrayOfNumbers)
+                        {
+                            Seed newSeed = new Seed(number);
+                            Seeds.Add(newSeed);
+                        }
 
-                    Seeds = arrayOfNumbers.ToList();
+                    }
                 }
             }
         }
