@@ -10,13 +10,18 @@ namespace Lib.Day06Year2023
 {
     public class RaceRecordBuilder
     {
-        public RaceRecordBuilder() { }
+        private ISpaceRemove spaceRemove;
         public static Regex regex = new Regex(@"\d+");
 
-        public static List<RaceRecord> Parse(string[] input)
+        public RaceRecordBuilder() 
         {
-            LineInput initaleTime = Parse(input[0]);
-            LineInput initaleDistance = Parse(input[1]);
+            this.spaceRemove = new SpaceRemove();
+        }
+
+        public List<RaceRecord> Parse(string[] input,bool isBonus)
+        {
+            LineInput initaleTime = Parse(input[0], isBonus);
+            LineInput initaleDistance = Parse(input[1], isBonus);
 
             List<RaceRecord> raceRecordList = new();
             for (int i = 0;i<initaleTime.Numbers.Count;i++)
@@ -26,17 +31,22 @@ namespace Lib.Day06Year2023
             return raceRecordList;
         }
 
-        private static LineInput Parse(string line)
+        private LineInput Parse(string line, bool isBonus)
         {
             //label
             string[] newLine = line.Split(':');
             string label = newLine[0];
+            string valueNumbersLine = newLine[1];
+            if (isBonus)
+            {
+                valueNumbersLine = spaceRemove.SpaceRemover(valueNumbersLine);
+            }
 
             //number
-            List<int> numbers = new(); 
-            foreach (Match match in regex.Matches(newLine[1]))
+            List<long> numbers = new(); 
+            foreach (Match match in regex.Matches(valueNumbersLine))
             {
-                numbers.Add(int.Parse(match.Value));
+                numbers.Add(long.Parse(match.Value));
             }
 
             //new LineInput

@@ -8,20 +8,20 @@ namespace Lib.Day06Year2023
 {
     public class RaceRecord
     {
-        public int Time { get; set; }
-        public int Distance { get; set; }
+        public long Time { get; set; }
+        public long Distance { get; set; }
 
-        public RaceRecord(int Time,int Distance) 
+        public RaceRecord(long Time, long Distance) 
         {
             this.Time = Time;
             this.Distance = Distance;
         }
-        public int NumberOfNewRecord() 
+        public long NumberOfNewRecord() 
         {
-            int numberOfNewRecord = 0;
-            for (int i = 0;i<Time;i++)
+            long numberOfNewRecord = 0;
+            for (long i = 0;i<Time;i++)
             {
-                int raceDistance = (Time-i)*i;
+                long raceDistance = (Time-i)*i;
                 if(raceDistance > Distance)
                 {
                     numberOfNewRecord++;

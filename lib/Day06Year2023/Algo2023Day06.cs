@@ -8,15 +8,18 @@ namespace Lib.Day06Year2023
 {
     internal class Algo2023Day06 : IAlgo
     {
+
+
         public string Solve(string[] input, bool isBonus = false)
         {
-            List<RaceRecord>  raceRecordList = RaceRecordBuilder.Parse(input);
-            List<int> newRecord = new List<int>();
+            RaceRecordBuilder builder = new RaceRecordBuilder();
+            List<RaceRecord>  raceRecordList = builder.Parse(input, isBonus);
+            List<long> newRecord = new List<long>();
             foreach (RaceRecord raceRecord in raceRecordList)
             {
                 newRecord.Add(raceRecord.NumberOfNewRecord());
             }
-            int multiplyNewRecord = 1;
+            long multiplyNewRecord = 1;
             for (int i = 0;i<newRecord.Count;i++)
             {
                 if(newRecord[i] != 0)

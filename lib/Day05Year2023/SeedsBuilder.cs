@@ -13,7 +13,7 @@ namespace lib.Day05Year2023
 
         public List<Seed> Seeds { get; set; }
 
-        public SeedsBuilder(string[] input, bool isBonus)
+        public SeedsBuilder(string[] input, bool isBonus = false)
         {
             this.input = input ?? throw new ArgumentNullException(nameof(input));
             this.Seeds = new List<Seed>();

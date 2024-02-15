@@ -9,9 +9,9 @@ namespace Lib.Day06Year2023
     public class LineInput
     {
         public string Label { get; set; }
-        public List<int> Numbers { get; set; }
+        public List<long> Numbers { get; set; }
 
-        public LineInput(string label,List<int> numbers) 
+        public LineInput(string label, List<long> numbers) 
         {
             Label = label;
             Numbers = numbers;
