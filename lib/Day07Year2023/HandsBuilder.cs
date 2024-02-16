@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Lib.Day07Year2023
 {
-    public class Algo2023Day07 : IAlgo
+    public class HandsBuilder
     {
-        public string Solve(string[] input, bool isBonus = false)
+
+
+        List<HandModel> HandBuilder(string[] input)
         {
-            return "";
+            return null;
         }
     }
 }

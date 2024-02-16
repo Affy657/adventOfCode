@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using lib.Day05Year2023;
+using Lib.Day05Year2023;
 using System;
 using System.Collections.Generic;
 using System.Linq;
