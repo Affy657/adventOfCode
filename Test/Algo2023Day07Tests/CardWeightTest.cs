@@ -76,8 +76,8 @@ namespace Test.Algo2023Day07Tests
 
 
         [Theory]
-        [InlineData('A', 'Q')]
-        [InlineData('K', 'J')]
+        [InlineData('A', 'C')]
+        [InlineData('B', 'D')]
         public void WhenWeightIsTheSame_WhenCardIsHigher_ShouldBeGreater(char winningCard, char losingCard)
         {
             // Given

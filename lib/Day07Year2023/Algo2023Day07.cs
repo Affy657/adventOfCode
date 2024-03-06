@@ -10,7 +10,14 @@ namespace Lib.Day07Year2023
     {
         public string Solve(string[] input, bool isBonus = false)
         {
-            return "";
+            HandsBuilder handsBuilder = new();
+            List<HandModel> handModelList = handsBuilder.HandBuilder(input);
+
+            PokerGame pokerGame = new();
+            long handBidSum = pokerGame.Game(handModelList);
+            
+            return handBidSum.ToString();
         }
+        
     }
 }

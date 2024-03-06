@@ -13,6 +13,12 @@ namespace Test.Algo2023Day07Tests
         [Theory]
         [InlineData("AAAAA", "AAAAA")]
         [InlineData("QQQQQ", "CCCCC")]
+        [InlineData("KKKKK", "BBBBB")]
+        [InlineData("JJJJJ", "DDDDD")]
+        [InlineData("TTTTT", "EEEEE")]
+        [InlineData("99999", "FFFFF")]
+        [InlineData("55555", "LLLLL")]
+        [InlineData("AQKJT", "ACBDE")]
         public void GivenMappedChars_WhenConvertHand_ThenAndShouldBeChanged(string inputHand, string expectedHand)
         {
             // Given

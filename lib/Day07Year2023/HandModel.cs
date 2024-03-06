@@ -17,6 +17,16 @@ namespace Lib.Day07Year2023
             Hand = hand;
             Bid = bid;
         }
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+            return obj is HandModel objHand && objHand.Hand == Hand && objHand.Bid == Bid;
+        }
+
+        public override string ToString()
+        {
+            return $"{Hand}, {Bid}";
+        }
 
         /// <summary>
         /// Return true if this hand is greater than one given
@@ -25,14 +35,14 @@ namespace Lib.Day07Year2023
         /// <returns>True if greater, false if lower, null if equal</returns>
         public bool? IsGreater(HandModel otherHand)
         {
-            string mappedFirstHand = ConvertHand(otherHand.Hand);
-            string mappedSecondHand = ConvertHand(Hand);
+            string mappedFirstHand = ConvertHand(Hand);
+            string mappedSecondHand = ConvertHand(otherHand.Hand);
 
-            List<CardWeight> curentHandCardWeight = ToDictionary(mappedSecondHand);
-            List<CardWeight> otherHandCardWeight = ToDictionary(mappedFirstHand);
-            for (int i = 0; i < curentHandCardWeight.Count; i++)
+            List<CardWeight> currentHandCardWeight = ToDictionary(mappedFirstHand);
+            List<CardWeight> otherHandCardWeight = ToDictionary(mappedSecondHand);
+            for (int i = 0; i < currentHandCardWeight.Count; i++)
             {
-                CardWeight elementFirstList = curentHandCardWeight[i];
+                CardWeight elementFirstList = currentHandCardWeight[i];
                 CardWeight elementSecondtList = otherHandCardWeight[i];
 
                 bool? eval = elementFirstList.IsGreater(elementSecondtList);
@@ -54,7 +64,6 @@ namespace Lib.Day07Year2023
         {
             List<char> charList = hand.ToList();
             charList.Sort();
-            //charList.Reverse();
             StringBuilder stringBuilder = new StringBuilder();
             foreach (char c in charList)
             {

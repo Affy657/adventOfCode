@@ -13,6 +13,7 @@ namespace Test.Algo2023Day07Tests
         [Theory]
         [InlineData("AAAAA", "AAAAA")]
         [InlineData("AAQAA", "AAAAQ")]
+        [InlineData("QQQAA", "AAQQQ")]
         public void SortSameCards_ShouldRemainTheSameHand(string inputHand, string expectedHand)
         {
             // Given

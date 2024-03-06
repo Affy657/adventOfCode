@@ -121,5 +121,29 @@ namespace Test.Algo2023Day07Tests
             // Then
             actual.Should().BeNull();
         }
+        [Theory]
+        [InlineData("AAAAA", "QQQQQ")]
+        [InlineData("AAAAA", "AAAA5")]
+        [InlineData("AAAA5", "AAA55")]
+        [InlineData("AAA55", "AAA25")]
+        [InlineData("AAAKK", "AAAQQ")]
+        [InlineData("QQQKK", "QQQJJ")]
+        [InlineData("AAA25", "AA255")]
+        [InlineData("AA255", "AA235")]
+        [InlineData("AA235", "A2345")]
+        [InlineData("A2345", "72345")]
+
+        public void GivenAnUpperHandAndALowerOne_WhenCompareFirstWithSecond_ThenFirtShouldBeGreater(string firstHand, string secondHand)
+        {
+            // Given
+            HandModel firstHandModel = new HandModel(firstHand, 0);
+            HandModel secondHandModel = new HandModel(secondHand, 0);
+
+            // When
+            bool? actual = firstHandModel.IsGreater(secondHandModel);
+
+            // Then
+            actual.Should().BeTrue();
+        }
     }
 }
