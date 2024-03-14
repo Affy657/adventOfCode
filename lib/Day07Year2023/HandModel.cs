@@ -40,24 +40,43 @@ namespace Lib.Day07Year2023
 
             List<CardWeight> currentHandCardWeight = ToDictionary(mappedFirstHand);
             List<CardWeight> otherHandCardWeight = ToDictionary(mappedSecondHand);
+            /* TODO : prendre en compte en priorité les schéma de poids suivant:
+             * 5
+             * 4-1
+             * 3-2
+             * 3-1-1
+             * 2-2-1
+             * 2-1-1-1
+             * 1-1-1-1-1
+             */
+            if(currentHandCardWeight.Count< otherHandCardWeight.Count)
+            {
+                return true;
+            }
+            if (currentHandCardWeight.Count > otherHandCardWeight.Count)
+            {
+                return false;
+            }
+
             for (int i = 0; i < currentHandCardWeight.Count; i++)
             {
                 CardWeight elementFirstList = currentHandCardWeight[i];
                 CardWeight elementSecondtList = otherHandCardWeight[i];
 
                 bool? eval = elementFirstList.IsGreater(elementSecondtList);
+
                 if (eval.HasValue)
                 {
                     return eval.Value;
                 }
             }
-
-            string firstHand = SortHand(mappedFirstHand);
-            string secondHand = SortHand(mappedSecondHand);
-
+            return ComparHand(mappedFirstHand, mappedSecondHand);
+            
+        }
+        public bool? ComparHand(string firstHand, string secondHand)
+        {
             int comparedHandsResult = firstHand.CompareTo(secondHand);
-
-            return comparedHandsResult == 0 ? null : comparedHandsResult > 0;
+            return comparedHandsResult == 0 ? null : comparedHandsResult < 0;
         }
 
         public string SortHand(string hand)

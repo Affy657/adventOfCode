@@ -16,10 +16,7 @@ namespace Lib.Day07Year2023
             if (Weight > elementSecondtList.Weight) return true;
             if (Weight < elementSecondtList.Weight) return false;
 
-            char myCard = Card.ToString()[0];
-            char otherCard = elementSecondtList.Card.ToString()[0];
-
-            return myCard.CompareTo(otherCard) == 0 ? null : myCard.CompareTo(otherCard) < 0;
+            return null;
         }
     }
 }

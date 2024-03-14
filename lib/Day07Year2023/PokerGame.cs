@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Lib.Day07Year2023
 {
@@ -11,6 +12,7 @@ namespace Lib.Day07Year2023
         public long Game(List<HandModel> handModelList) 
         {
             return GameBidCalcul(GameSort(handModelList));
+            
         }
         public List<HandModel> GameSort(List<HandModel> handModelList)
         { 
@@ -31,6 +33,17 @@ namespace Lib.Day07Year2023
             BidCalcul bidCalcul = new();
             long handBidSum = bidCalcul.BidCompute(handModelSortedList);
             return handBidSum;
+        }
+        public void WriteSortedHandsToFile(List<HandModel> handModelList, string filePath)
+        {
+            //var sortedHands = GameSort(handModelList);
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                foreach (HandModel hand in handModelList)
+                {        
+                    writer.WriteLine(hand.SortHand(hand.Hand));
+                }
+            }
         }
     }
 }
