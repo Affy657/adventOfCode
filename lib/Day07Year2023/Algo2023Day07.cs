@@ -15,7 +15,7 @@ namespace Lib.Day07Year2023
 
             PokerGame pokerGame = new();
             long handBidSum = pokerGame.Game(handModelList);
-            pokerGame.WriteSortedHandsToFile(handModelList,"resultDay7.txt");
+            //pokerGame.WriteSortedHandsToFile(handModelList,"resultDay7.txt");
 
             return handBidSum.ToString();
         }

@@ -40,7 +40,7 @@ namespace Lib.Day07Year2023
 
             List<CardWeight> currentHandCardWeight = ToDictionary(mappedFirstHand);
             List<CardWeight> otherHandCardWeight = ToDictionary(mappedSecondHand);
-            /* TODO : prendre en compte en priorité les schéma de poids suivant:
+            /* 
              * 5
              * 4-1
              * 3-2

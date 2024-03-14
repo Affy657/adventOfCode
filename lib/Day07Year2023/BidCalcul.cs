@@ -22,6 +22,7 @@ namespace Lib.Day07Year2023
             }
 
             return handBid;
+            //return handModelSortedList.Select((handModel, index) => handModel.Bid * (index + 1)).ToList();
         }
         public long BidSum (List<long> handBid) 
         {

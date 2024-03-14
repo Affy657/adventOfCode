@@ -36,7 +36,6 @@ namespace Lib.Day07Year2023
         }
         public void WriteSortedHandsToFile(List<HandModel> handModelList, string filePath)
         {
-            //var sortedHands = GameSort(handModelList);
             using (StreamWriter writer = new StreamWriter(filePath))
             {
                 foreach (HandModel hand in handModelList)

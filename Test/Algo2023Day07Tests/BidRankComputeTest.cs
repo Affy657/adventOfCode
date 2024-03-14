@@ -26,11 +26,8 @@ namespace Test.Algo2023Day07Tests
                     [491,619*2,606*3,23*4,814*5,105*6,200*7,317*8,251*9]
                 }
             };
-        /*{
-        [new ("342QK", 491),new ("36QAT", 619),new ("85663", 606),new ("33K3A", 23),new ("K7775", 814),new ("T67T6", 105),new ("49T8T", 200),new ("2KAT2", 317),new ("96669", 251)],
-        [491,619*2,317*3,606*4,200*5,105*6,23*7,814*8,251*9]
-        }*/
-    [Theory]
+        
+        [Theory]
         [MemberData(nameof(WhenCorectBidRankCompute_data))]
         public void WhenCorectBidRankCompute(List<HandModel> input, List<long> expected)
         {

@@ -62,14 +62,6 @@ namespace Test.Algo2023Day07Tests
         [Theory]
         [MemberData(nameof(WhenGameSortHandLists_ShouldBeCorectOrder_data))]
 
-        //[InlineData("AAAAA", "QQQQQ")]
-        //[InlineData("AAAAA", "AAAA5")]
-        //[InlineData("AAAA5", "AAA55")]
-        //[InlineData("AAA55", "AAA25")]
-        //[InlineData("AAA25", "AA255")]
-        //[InlineData("AA255", "AA235")]
-        //[InlineData("AA235", "A2345")]
-        //[InlineData("A2345", "72345")]
         public void WhenGameSortHandLists_ShouldBeCorectOrder(List<HandModel> input, List<HandModel> expected)
         {
             // Given

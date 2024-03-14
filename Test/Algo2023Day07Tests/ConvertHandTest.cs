@@ -19,7 +19,7 @@ namespace Test.Algo2023Day07Tests
         [InlineData("99999", "FFFFF")]
         [InlineData("55555", "LLLLL")]
         [InlineData("AQKJT", "ACBDE")]
-        public void GivenMappedChars_WhenConvertHand_ThenAndShouldBeChanged(string inputHand, string expectedHand)
+        public void GivenMappedChars_WhenConvertHand_ThenShouldBeChanged(string inputHand, string expectedHand)
         {
             // Given
             HandModel hand = new HandModel(inputHand, 0);

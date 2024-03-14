@@ -21,7 +21,6 @@ namespace Test.Algo2023Day07Tests
             actual.Should().BeTrue();
         }
 
-        
         [Theory]
         [InlineData("AAAAA", "55555")]
         [InlineData("AAAAA", "KKKKK")]
@@ -104,7 +103,6 @@ namespace Test.Algo2023Day07Tests
             actual.Should().BeTrue();
         }
 
-
         [Theory]
         [InlineData("AAAAA", "AAAAA")]
         [InlineData("AAAA5", "AAAA5")]
@@ -120,6 +118,7 @@ namespace Test.Algo2023Day07Tests
             // Then
             actual.Should().BeNull();
         }
+
         [Theory]
         [InlineData("AAAAA", "QQQQQ")]
         [InlineData("AAAAA", "AAAA5")]
@@ -146,18 +145,15 @@ namespace Test.Algo2023Day07Tests
         [InlineData("22225", "22224")]
         [InlineData("22346", "22345")]
 
-        
-
-        /* TODO : prendre en compte en priorité les schéma de poids suivant:
-             * 5
-             * 4-1
-             * 3-2
-             * 3-1-1
-             * 2-2-1
-             * 2-1-1-1
-             * 1-1-1-1-1
-             */
-
+        /* 
+        * 5
+        * 4-1
+        * 3-2
+        * 3-1-1
+        * 2-2-1
+        * 2-1-1-1
+        * 1-1-1-1-1
+        */
 
         public void GivenAnUpperHandAndALowerOne_WhenCompareFirstWithSecond_ThenFirtShouldBeGreater(string firstHand, string secondHand)
         {
