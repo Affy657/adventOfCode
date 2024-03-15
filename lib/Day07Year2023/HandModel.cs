@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lib.Day04Year2023;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,23 +34,51 @@ namespace Lib.Day07Year2023
         /// </summary>
         /// <param name="otherHand">The hand we want to compare this one with</param>
         /// <returns>True if greater, false if lower, null if equal</returns>
-        public bool? IsGreater(HandModel otherHand)
+        public bool? IsGreater(HandModel otherHand, bool isBonus = false)
         {
-            string mappedFirstHand = ConvertHand(Hand);
-            string mappedSecondHand = ConvertHand(otherHand.Hand);
+            string mappedFirstHand = ConvertHand(Hand, isBonus);
+            string mappedSecondHand = ConvertHand(otherHand.Hand, isBonus);
 
             List<CardWeight> currentHandCardWeight = ToDictionary(mappedFirstHand);
             List<CardWeight> otherHandCardWeight = ToDictionary(mappedSecondHand);
-            /* 
-             * 5
-             * 4-1
-             * 3-2
-             * 3-1-1
-             * 2-2-1
-             * 2-1-1-1
-             * 1-1-1-1-1
-             */
-            if(currentHandCardWeight.Count< otherHandCardWeight.Count)
+      
+            if (isBonus)
+            {
+                for (int i = 0; i < currentHandCardWeight.Count; i++)
+                {
+                    if (currentHandCardWeight[i].Card == 'P' && currentHandCardWeight.Count > 1)
+                    {
+                        if (currentHandCardWeight[0].Card != 'P')
+                        {
+                            currentHandCardWeight[0].Weight += currentHandCardWeight[i].Weight;
+                            currentHandCardWeight.Remove(currentHandCardWeight[i]);
+                        }
+                        else
+                        {
+                            currentHandCardWeight[1].Weight += currentHandCardWeight[i].Weight;
+                            currentHandCardWeight.Remove(currentHandCardWeight[i]);
+                        }
+                    }
+                }
+                for (int i = 0; i < otherHandCardWeight.Count; i++)
+                { 
+                    if (otherHandCardWeight[i].Card == 'P' && otherHandCardWeight.Count > 1)
+                    {
+                        if (otherHandCardWeight[0].Card != 'P')
+                        {
+                            otherHandCardWeight[0].Weight += otherHandCardWeight[i].Weight;
+                            otherHandCardWeight.Remove(otherHandCardWeight[i]);
+                        }
+                        else
+                        {
+                            otherHandCardWeight[1].Weight += otherHandCardWeight[i].Weight;
+                            otherHandCardWeight.Remove(otherHandCardWeight[i]);
+                        }
+                    }
+                }
+            }
+
+            if (currentHandCardWeight.Count< otherHandCardWeight.Count)
             {
                 return true;
             }
@@ -91,23 +120,46 @@ namespace Lib.Day07Year2023
             return stringBuilder.ToString();
         }
 
-        public string ConvertHand(string hand)
+        public string ConvertHand(string hand, bool isBonus = false)
         {
-            Dictionary<string, string> convertedChar = new Dictionary<string, string>
+            Dictionary<string, string> convertedChar ;
+
+            if (isBonus)
             {
-                ["K"] = "B",
-                ["Q"] = "C",
-                ["J"] = "D",
-                ["T"] = "E",
-                ["9"] = "F",
-                ["8"] = "G",
-                ["7"] = "H",
-                ["6"] = "I",
-                ["5"] = "L",
-                ["4"] = "M",
-                ["3"] = "N",
-                ["2"] = "O"
-            };
+                convertedChar = new Dictionary<string, string>
+                {
+                    ["K"] = "B",
+                    ["Q"] = "C",
+                    ["T"] = "E",
+                    ["9"] = "F",
+                    ["8"] = "G",
+                    ["7"] = "H",
+                    ["6"] = "I",
+                    ["5"] = "L",
+                    ["4"] = "M",
+                    ["3"] = "N",
+                    ["2"] = "O",
+                    ["J"] = "P"
+                };
+            }
+            else 
+            { 
+                convertedChar = new Dictionary<string, string>
+                {
+                    ["K"] = "B",
+                    ["Q"] = "C",
+                    ["J"] = "D",
+                    ["T"] = "E",
+                    ["9"] = "F",
+                    ["8"] = "G",
+                    ["7"] = "H",
+                    ["6"] = "I",
+                    ["5"] = "L",
+                    ["4"] = "M",
+                    ["3"] = "N",
+                    ["2"] = "O"
+                };
+            }
             foreach (KeyValuePair<string, string> c in convertedChar)
             {
                 hand = hand.Replace(c.Key, c.Value);

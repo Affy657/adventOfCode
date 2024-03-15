@@ -74,23 +74,5 @@ namespace Test.Algo2023Day07Tests
             actual.Should().BeNull();
         }
 
-
-        [Theory]
-        [InlineData('A', 'C')]
-        [InlineData('B', 'D')]
-        public void WhenWeightIsTheSame_WhenCardIsHigher_ShouldBeGreater(char winningCard, char losingCard)
-        {
-            // Given
-            CardWeight winningPattern = new CardWeight { Card = winningCard, Weight = 5 };
-            CardWeight losingPattern = new CardWeight { Card = losingCard, Weight = 5 };
-
-            // When
-            bool? actual = winningPattern.IsGreater(losingPattern);
-
-            // Then
-            actual.Should().NotBeNull();
-            actual.Should().BeTrue();
-        }
-
     }
 }

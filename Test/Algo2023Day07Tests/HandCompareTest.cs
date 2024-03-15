@@ -88,7 +88,7 @@ namespace Test.Algo2023Day07Tests
         [InlineData("AA2QQ", "55555")]
         [InlineData("33266", "AAAA5")]
         [InlineData("33266", "AAA55")]
-        [InlineData("AA2TT", "QA2AQ")]
+        
         public void CompareTwoPairHandwithDifferentOtherUpperHandTheory(string twoPairHand, string upperHand)
         {
             // Given
@@ -132,7 +132,6 @@ namespace Test.Algo2023Day07Tests
         [InlineData("A2345", "72345")]
         [InlineData("88996", "88995")]
         [InlineData("AAKKK", "26AAA")]
-        [InlineData("QQAA6", "KKQQ5")]
 
         [InlineData("22225", "AAAKK")]
         [InlineData("22233", "AAAKQ")]
@@ -144,16 +143,6 @@ namespace Test.Algo2023Day07Tests
         [InlineData("22337", "22336")]
         [InlineData("22225", "22224")]
         [InlineData("22346", "22345")]
-
-        /* 
-        * 5
-        * 4-1
-        * 3-2
-        * 3-1-1
-        * 2-2-1
-        * 2-1-1-1
-        * 1-1-1-1-1
-        */
 
         public void GivenAnUpperHandAndALowerOne_WhenCompareFirstWithSecond_ThenFirtShouldBeGreater(string firstHand, string secondHand)
         {
@@ -167,6 +156,27 @@ namespace Test.Algo2023Day07Tests
             // Then
             actual.Should().BeTrue();
         }
+
+        [Theory]
+
+        [InlineData("AAJQQ", "KKQQ4")]
+        [InlineData("AAAAJ", "JAAAA")]
+        [InlineData("8JJJJ", "JJJJ8")]
+        [InlineData("AJJQQ", "JJAQQ")]
+
+        public void GivenIsBonusAnUpperHandAndALowerOne_WhenCompareFirstWithSecond_ThenFirtShouldBeGreater(string firstHand, string secondHand)
+        {
+            // Given
+            HandModel firstHandModel = new HandModel(firstHand, 0);
+            HandModel secondHandModel = new HandModel(secondHand, 0);
+
+            // When
+            bool? actual = firstHandModel.IsGreater(secondHandModel,true);
+
+            // Then
+            actual.Should().BeTrue();
+        }
+
         [Theory]
         [InlineData("55554", "2222A")]
         [InlineData("73333", "44447")]

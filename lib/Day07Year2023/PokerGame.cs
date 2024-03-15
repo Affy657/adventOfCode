@@ -9,14 +9,14 @@ namespace Lib.Day07Year2023
 {
     public class PokerGame
     {
-        public long Game(List<HandModel> handModelList) 
+        public long Game(List<HandModel> handModelList, bool isBonus = false) 
         {
-            return GameBidCalcul(GameSort(handModelList));
+            return GameBidCalcul(GameSort(handModelList, isBonus));
             
         }
-        public List<HandModel> GameSort(List<HandModel> handModelList)
+        public List<HandModel> GameSort(List<HandModel> handModelList, bool isBonus = false)
         { 
-            handModelList.Sort((HandModel x, HandModel y) => NullableBooleanToInt(x.IsGreater(y))); 
+            handModelList.Sort((HandModel x, HandModel y) => NullableBooleanToInt(x.IsGreater(y, isBonus))); 
             return handModelList;
         }
         public static int NullableBooleanToInt(bool? nullableBoolean)

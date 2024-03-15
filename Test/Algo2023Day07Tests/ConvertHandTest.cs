@@ -31,6 +31,28 @@ namespace Test.Algo2023Day07Tests
             string expected = expectedHand;
             actual.Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData("AAAAA", "AAAAA")]
+        [InlineData("QQQQQ", "CCCCC")]
+        [InlineData("KKKKK", "BBBBB")]
+        [InlineData("JJJJJ", "PPPPP")]
+        [InlineData("TTTTT", "EEEEE")]
+        [InlineData("99999", "FFFFF")]
+        [InlineData("55555", "LLLLL")]
+        [InlineData("AQKJT", "ACBPE")]
+        public void GivenMappedCharsIsBonus_WhenConvertHand_ThenShouldBeChanged(string inputHand, string expectedHand)
+        {
+            // Given
+            HandModel hand = new HandModel(inputHand, 0);
+
+            // When
+            string actual = hand.ConvertHand(hand.Hand, true);
+
+            // Then
+            string expected = expectedHand;
+            actual.Should().Be(expected);
+        }
     }
 
 }
