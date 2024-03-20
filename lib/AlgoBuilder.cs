@@ -1,10 +1,7 @@
 using Lib.Day04Year2023;
 using Lib.Day05Year2023;
 using Lib.Day06Year2023;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Lib.Day07Year2023;
 
 namespace Lib;
 
@@ -41,6 +38,10 @@ public class AlgoBuilder
         else if (this.Year == 2023 && this.Day == 6)
         {
             return new Algo2023Day06();
+        }
+        else if (this.Year == 2023 && this.Day == 7)
+        {
+            return new Algo2023Day07();
         }
 
         return new Algo2023Day01();

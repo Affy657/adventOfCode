@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lib.Day05Year2023
+namespace Lib.Day05Year2023
 {
     internal class SeedModificator
     {

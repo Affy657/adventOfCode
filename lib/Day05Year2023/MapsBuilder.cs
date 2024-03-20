@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace lib.Day05Year2023
+namespace Lib.Day05Year2023
 {
     public class MapsBuilder
     {

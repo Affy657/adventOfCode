@@ -1,4 +1,4 @@
-﻿namespace lib.Day05Year2023;
+﻿namespace Lib.Day05Year2023;
 
 public class Map
 {
