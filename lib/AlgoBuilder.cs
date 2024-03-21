@@ -2,6 +2,7 @@ using Lib.Day04Year2023;
 using Lib.Day05Year2023;
 using Lib.Day06Year2023;
 using Lib.Day07Year2023;
+using Lib.Day08Year2023;
 
 namespace Lib;
 
@@ -42,6 +43,10 @@ public class AlgoBuilder
         else if (this.Year == 2023 && this.Day == 7)
         {
             return new Algo2023Day07();
+        }
+        else if (this.Year == 2023 && this.Day == 8)
+        {
+            return new Algo2023Day08();
         }
 
         return new Algo2023Day01();
