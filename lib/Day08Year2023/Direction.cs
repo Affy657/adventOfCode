@@ -12,14 +12,8 @@ namespace Lib.Day08Year2023
         public bool Right { get; set; } = false;
         public Direction(char input) 
         {
-            if(input == 'L')
-            {
-                Left = true;
-            }
-            else if(input == 'R')
-            {
-                Right = true;
-            }
+            Left = input == 'L';
+            Right = input == 'R';         
         }
     }
 }

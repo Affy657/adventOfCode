@@ -10,15 +10,14 @@ namespace Lib.Day08Year2023
 {
     public class Navigator
     {
-        public string Target = "ZZZ";
+        const string TARGET = "ZZZ";
         public int Navigate(List<Direction> path, Node currentNode)
         {
             int repeat = 0;
             int numberOfNodesCrossed = 0;
             bool targetFind = false;
             while (!targetFind)
-            {
-                repeat++;
+            {              
                 numberOfNodesCrossed = 0;
                 while (!targetFind && numberOfNodesCrossed < path.Count)
                 {
@@ -30,12 +29,19 @@ namespace Lib.Day08Year2023
                     {
                         currentNode = currentNode.Links[1];
                     }
-                    if(currentNode.Name == Target)
+                    if(currentNode.Name == TARGET)
                     {
                         targetFind = true;
                     }
-                    numberOfNodesCrossed ++;
-                }                
+                    if (!targetFind)
+                    {
+                        numberOfNodesCrossed ++;
+                    }
+                }
+                if (!targetFind)
+                {
+                    repeat++;
+                }
             }
             return path.Count * repeat + numberOfNodesCrossed + 1;
         }

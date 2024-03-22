@@ -8,10 +8,9 @@ namespace Lib.Day08Year2023
 {
     public class Path
     {
-        public List<Direction> getPaths(string[] input) 
+        public List<Direction> getPaths(string line) 
         {
-            List<Direction> Paths= new List<Direction>();
-            string line = input[0];
+            List<Direction> Paths = new List<Direction>();
             for (int i = 0; i < line.Length; i++)
             {
                 Paths.Add(new Direction(line[i]));

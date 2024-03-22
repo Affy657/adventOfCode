@@ -14,10 +14,10 @@ namespace Lib.Day08Year2023
         public string Solve(string[] input, bool isBonus = false)
         {
             Path path = new();
-            List<Direction> paths = path.getPaths(input);
+            List<Direction> paths = path.getPaths(input[0]);
 
             NetWork netWork = new NetWork();
-            Node firstNode = netWork.getFirstNode(input);
+            Node firstNode = netWork.getFirstNode(input[2..]);
 
             Navigator navigator = new Navigator();
             int numberOfNodesCrossed = navigator.Navigate(paths, firstNode);
