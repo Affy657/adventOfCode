@@ -17,10 +17,10 @@ namespace Lib.Day08Year2023
             List<Direction> paths = path.getPaths(input[0]);
 
             NetWork netWork = new NetWork();
-            Node firstNode = netWork.getFirstNode(input[2..]);
+            List<Node> firstNode = netWork.GetFirstNode(input[2..], isBonus);
 
             Navigator navigator = new Navigator();
-            int numberOfNodesCrossed = navigator.Navigate(paths, firstNode);
+            int numberOfNodesCrossed = navigator.Navigate(paths, firstNode, isBonus);
 
             return numberOfNodesCrossed.ToString();
         }

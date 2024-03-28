@@ -9,12 +9,14 @@ namespace Lib.Day08Year2023
     public class NetWork
     {
         const string SPAWN_POINT = "AAA";
-        public Node getFirstNode(string[] linesNodes) 
+        const char SPAWN_POINTS = 'A';
+        public NodeBuilder nodeBuilder = new();
+
+        public List<Node> GetFirstNode(string[] linesNodes, bool isBonus)
         {
-            NodeBuilder nodeBuilder = new NodeBuilder();
             List<Node> nodesNameList = nodeBuilder.NodeNameListBuilder(linesNodes);
             List<Node> nodesList = nodeBuilder.NodeListBuilder(linesNodes, nodesNameList);
-            return nodesList.Find(x => x.Name == SPAWN_POINT);
+            return nodesList.FindAll(x => isBonus ? x.Name[^1] == SPAWN_POINTS : x.Name == SPAWN_POINT);
         }
     }
 }
