@@ -11,15 +11,19 @@ namespace Lib.Day08Year2023
 {
     public class Algo2023Day08 : IAlgo
     {
-        public string Solve(string[] input, bool isBonus = false)
+        private readonly Path path;
+        private readonly NetWork netWork;
+        private readonly Navigator navigator;
+        public Algo2023Day08()
         {
-            Path path = new();
+            this.path = new();
+            this.netWork = new();
+            this.navigator = new();
+        }
+        public string Solve(string[] input, bool isBonus = false)
+        {            
             List<Direction> paths = path.getPaths(input[0]);
-
-            NetWork netWork = new NetWork();
             List<Node> firstNode = netWork.GetFirstNode(input[2..], isBonus);
-
-            Navigator navigator = new Navigator();
             int numberOfNodesCrossed = navigator.Navigate(paths, firstNode, isBonus);
 
             return numberOfNodesCrossed.ToString();

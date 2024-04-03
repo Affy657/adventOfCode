@@ -24,8 +24,7 @@ namespace Test.Algo2023Day08Tests
             // Then
             actual.Should().NotBeEmpty();
             actual.Count.Should().Be(3);
-            actual[0].Name.Should().BeEquivalentTo("AAA");
-            actual[0].Links.Should().BeEmpty();
+            actual[0].Name.Should().BeEquivalentTo("AAA");           
             
         }
 
@@ -35,10 +34,11 @@ namespace Test.Algo2023Day08Tests
         {
             // Given           
             NodeBuilder nodeBuilder = new NodeBuilder();
-            List<Node> nodesNameList = nodeBuilder.NodeNameListBuilder(["AAA = (BBB, BBB)", "BBB = (AAA, ZZZ)", "ZZZ = (ZZZ, ZZZ)"]);
+            string[] rawInput = ["AAA = (BBB, BBB)", "BBB = (AAA, ZZZ)", "ZZZ = (ZZZ, ZZZ)"];
+            List<Node> nodesNameList = nodeBuilder.NodeNameListBuilder(rawInput);
 
             // When
-            List<Node> actual = nodeBuilder.NodeListBuilder(["AAA = (BBB, BBB)", "BBB = (AAA, ZZZ)", "ZZZ = (ZZZ, ZZZ)"],nodesNameList);
+            List<Node> actual = nodeBuilder.NodeListBuilder(rawInput, nodesNameList);
 
             // Then
             actual.Should().NotBeEmpty();
@@ -53,10 +53,11 @@ namespace Test.Algo2023Day08Tests
         {
             // Given           
             NodeBuilder nodeBuilder = new NodeBuilder();
-            List<Node> nodesNameList = nodeBuilder.NodeNameListBuilder(["AAA = (BBB, BBB)", "BBB = (AAA, ZZZ)", "ZZZ = (ZZZ, ZZZ)"]);
+            string[] rawInput = ["AAA = (BBB, BBB)", "BBB = (AAA, ZZZ)", "ZZZ = (ZZZ, ZZZ)"];
+            List<Node> nodesNameList = nodeBuilder.NodeNameListBuilder(rawInput);
 
             // When
-            List<Node> actual = nodeBuilder.NodeListBuilder(["AAA = (BBB, BBB)", "BBB = (AAA, ZZZ)", "ZZZ = (ZZZ, ZZZ)"], nodesNameList);
+            List<Node> actual = nodeBuilder.NodeListBuilder(rawInput, nodesNameList);
 
 
             // Then

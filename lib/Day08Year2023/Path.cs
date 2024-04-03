@@ -10,13 +10,12 @@ namespace Lib.Day08Year2023
     {
         public List<Direction> getPaths(string line) 
         {
-            List<Direction> Paths = new List<Direction>();
-            for (int i = 0; i < line.Length; i++)
+            List<Direction> Paths = [];
+            foreach (char c in line)
             {
-                Paths.Add(new Direction(line[i]));
+                Paths.Add(new Direction(c));
             }
-            return Paths;
-
+            return Paths;          
         }
     }
 }
