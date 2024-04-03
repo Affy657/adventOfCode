@@ -9,6 +9,7 @@ namespace Lib.Day09Year2023
 {
     public class Predictor
     {
+        private static bool IsZero(int x) => x == 0;
         public List<int> GetPredicates(List<List<int>> report)
         {
             List<int> predicats = [];
@@ -23,7 +24,7 @@ namespace Lib.Day09Year2023
         }
         public List<List<int>> BuildOffset(List<List<int>> history) 
         {       
-            bool zero = history[^1].All(x => x == 0);
+            bool zero = history[^1].All(IsZero);
 
             if (!zero) {
 
