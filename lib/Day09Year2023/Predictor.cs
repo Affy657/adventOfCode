@@ -10,13 +10,13 @@ namespace Lib.Day09Year2023
     public class Predictor
     {
         private static bool IsZero(int x) => x == 0;
-        public List<int> GetPredicates(List<List<int>> report)
+        public List<int> GetPredicates(List<List<int>> report, bool isBonus)
         {
             List<int> predicats = [];
             foreach (List<int> history in report)
             {
                 List<List<int>> offset = BuildOffset([history]);
-                List<List<int>> nextValue = NextValue(offset);
+                List<List<int>> nextValue = NextValue(offset, isBonus);
                 predicats.Add(nextValue[0][^1]);
             }
 
@@ -41,13 +41,20 @@ namespace Lib.Day09Year2023
             
             return history;         
         }
-        public List<List<int>> NextValue(List<List<int>> offset) 
+        public List<List<int>> NextValue(List<List<int>> offset, bool isBonus) 
         {
-            offset[^1].Add(0);
-            for(int i = offset.Count - 2 ; i >= 0 ; i--)
+            offset[^1].Add(0);           
+            int bonus = 1;
+            if (isBonus)
             {
-                offset[i].Add(offset[i][^1]+ offset[i+1][^1]);
-            }
+                offset = offset.Select(x => x.AsEnumerable().Reverse().ToList()).ToList();
+                bonus = -1;
+            }          
+            for (int i = offset.Count - 2; i >= 0; i--)
+            {
+                offset[i].Add(offset[i][^1] + offset[i + 1][^1] * bonus);
+            }           
+
             return offset;
         }
     }
