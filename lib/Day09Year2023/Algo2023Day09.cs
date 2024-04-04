@@ -19,7 +19,7 @@ namespace Lib.Day08Year2023
         public string Solve(string[] input, bool isBonus = false)
         {
             List<List<int>> report = reportBuilder.GetReport(input);
-            List<int> predicats = predictor.GetPredicates(report);
+            List<int> predicats = predictor.GetPredicates(report, isBonus);
 
             return predicats.Sum().ToString();
         }
