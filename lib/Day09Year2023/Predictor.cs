@@ -43,22 +43,18 @@ namespace Lib.Day09Year2023
         }
         public List<List<int>> NextValue(List<List<int>> offset, bool isBonus) 
         {
-            offset[^1].Add(0);
-            if(isBonus)
+            offset[^1].Add(0);           
+            int bonus = 1;
+            if (isBonus)
             {
                 offset = offset.Select(x => x.AsEnumerable().Reverse().ToList()).ToList();
-                for (int i = offset.Count - 2; i >= 0; i--)
-                {
-                    offset[i].Add(offset[i][^1] - offset[i + 1][^1]);
-                }
-            }
-            else
+                bonus = -1;
+            }          
+            for (int i = offset.Count - 2; i >= 0; i--)
             {
-                for (int i = offset.Count - 2 ; i >= 0 ; i--)
-                {
-                    offset[i].Add(offset[i][^1]+ offset[i+1][^1]);
-                }
-            }
+                offset[i].Add(offset[i][^1] + offset[i + 1][^1] * bonus);
+            }           
+
             return offset;
         }
     }
