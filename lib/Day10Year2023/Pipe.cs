@@ -8,8 +8,8 @@ namespace Lib.Day10Year2023
 {
     public class Pipe
     {
-        public int Y;
-        public int X; 
+        public int Y { get; }
+        public int X { get; }
         public char Type;
         public List<List<int>> NeighborCoordinate;
         public List<Pipe> Neighbor {  get; set; }
@@ -25,50 +25,37 @@ namespace Lib.Day10Year2023
             this.NeighborCoordinate = GetNeighborCoordinate();
             this.Neighbor = new();
         }
-        /*| is a vertical pipe connecting north and south.
-
-        - is a horizontal pipe connecting east and west.
-
-        L is a 90-degree bend connecting north and east.
-
-        J is a 90-degree bend connecting north and west.
-
-        7 is a 90-degree bend connecting south and west.
-
-        F is a 90-degree bend connecting south and east.
-
-        . is ground; there is no pipe in this tile.
-
-        S is the starting position.*/
+        
         public List<List<int>> GetNeighborCoordinate()
         {
             List<List<int>>  transformation = new();
+            
 
-            if (Type == '|')
+            if (Type == PipeType.VERTICAL_PIPE)
             {
                 transformation.Add(TOP);
                 transformation.Add(BOTTOM);              
-            }else if (Type == '-')
+            }else if (Type == PipeType.HORIZONTAL_PIPE)
             {
                 transformation.Add(LEFT);
                 transformation.Add(RIGHT);
-            }else if(Type == 'L')
+            }else if(Type == PipeType.NORTHEAST_PIPE)
             {
                 transformation.Add(TOP);
                 transformation.Add(RIGHT);
-            }else if(Type == 'J')
+            }else if(Type == PipeType.NORTHWEST_PIPE)
             {
                 transformation.Add(TOP);
                 transformation.Add(LEFT);
-            }else if(Type == '7')
+            }else if(Type == PipeType.SOUTHWEST_PIPE)
             {
                 transformation.Add(LEFT);
                 transformation.Add(BOTTOM);
-            }else if(Type == 'F')
+            }else if(Type == PipeType.SOUTHEAST_PIPE)
             {
                 transformation.Add(RIGHT);
                 transformation.Add(BOTTOM);
-            }else if(Type == 'S')
+            }else if(Type == PipeType.STARTING_PIPE)
             {
                 transformation.Add(LEFT);
                 transformation.Add(RIGHT);
