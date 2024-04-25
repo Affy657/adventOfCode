@@ -1,9 +1,9 @@
 ﻿using Lib;
 
-string[] data = File.ReadAllLines("input2023Day09.txt");
+string[] data = File.ReadAllLines("input2023Day10.txt");
 
 
-AlgoBuilder builder = new AlgoBuilder(2023, 9);
+AlgoBuilder builder = new AlgoBuilder(2023, 10);
 IAlgo algo = builder.Build();
 
 if(algo == null){
