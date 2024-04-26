@@ -13,21 +13,16 @@ namespace Lib.Day10Year2023
             bool finishLoop = false;
             Pipe currentPipe = startPoint;
             int lenthLoop = 0;
-            Pipe oldNeighbor = new(0,0,'.');
+            Pipe oldNeighbor = null;
 
             while (!finishLoop)
             {
-                for(int i = 0; i < currentPipe.Neighbor.Count; i++) 
-                {
-                    if (oldNeighbor != currentPipe.Neighbor[i]  && currentPipe.Neighbor[i].Neighbor.Contains(currentPipe))
-                    {
-                        oldNeighbor = currentPipe;
-                        currentPipe = currentPipe.Neighbor[i];
-                        i = currentPipe.Neighbor.Count;
-                        lenthLoop++;
-                        finishLoop = currentPipe == startPoint;
-                    }
-                }
+                Pipe nextPipe = currentPipe.NextPipe(oldNeighbor);
+                oldNeighbor = currentPipe;
+                currentPipe = nextPipe;
+                lenthLoop++;
+                finishLoop = currentPipe == startPoint;
+
             }
             return lenthLoop/2;
         }

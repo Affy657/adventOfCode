@@ -25,12 +25,22 @@ namespace Lib.Day10Year2023
             this.NeighborCoordinate = GetNeighborCoordinate();
             this.Neighbor = new();
         }
-        
+        public Pipe NextPipe(Pipe oldPipe) 
+        {
+            foreach(Pipe pipe in Neighbor)
+            {
+                if(pipe != oldPipe)
+                {
+                    return pipe;
+                }
+            }
+            return null;
+        }
+
         public List<List<int>> GetNeighborCoordinate()
         {
             List<List<int>>  transformation = new();
             
-
             if (Type == PipeType.VERTICAL_PIPE)
             {
                 transformation.Add(TOP);
@@ -61,10 +71,6 @@ namespace Lib.Day10Year2023
                 transformation.Add(RIGHT);
                 transformation.Add(TOP);
                 transformation.Add(BOTTOM);
-            }else
-            {
-                transformation.Add(null);
-                transformation.Add(null);
             }
 
             return transformation;

@@ -18,7 +18,7 @@ namespace Lib.Day10Year2023
         }
         public string Solve(string[] input, bool isBonus = false)
         {
-            Pipe startPipe = MapsBuilder.GetStartPipe(input);
+            Pipe startPipe = MapsBuilder.CreateNetworkAndGetStartPipe(input);
             int furthestPoint = navigator.GetFurthestPoint(startPipe);
             return furthestPoint.ToString();
         }
