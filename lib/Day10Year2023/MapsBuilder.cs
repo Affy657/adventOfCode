@@ -9,16 +9,31 @@ namespace Lib.Day10Year2023
 {
     public class MapsBuilder
     {
-        public Pipe CreateNetworkAndGetStartPipe(string[] input) {
+        public List<List<Pipe>> CreateNetwork(string[] input) {
 
             List<List<Pipe>> maps = MapBuilder(input);
-            Pipe StartPipe = GetStartPipe(maps);
-
-            return StartPipe;
+            maps = CreateNetwork(maps);
+            return maps;
         }
-        public Pipe GetStartPipe(List<List<Pipe>> maps)
+
+        public Pipe FindStartPipe(List<List<Pipe>> maps)
         {
-            Pipe StartPipe = null;
+            int y = 0;
+            int x = 0;
+            while (!(maps[y][x].NeighborCoordinate.Count > 2))
+            {
+                x++;
+                if (maps[y].Count == x)
+                {
+                    x = 0 ; y++;
+                }
+            }
+            return maps[y][x];
+
+        }
+
+        public List<List<Pipe>> CreateNetwork(List<List<Pipe>> maps)
+        {
             for (int y = 0; y < maps.Count; y++)
             {
                 for (int x = 0; x < maps[y].Count; x++)
@@ -27,15 +42,11 @@ namespace Lib.Day10Year2023
                     for (int i = 0; i < neighborCoordinate.Count; i++)
                     {
                         maps = NewNeighbor(neighborCoordinate, maps, y, x, i);
-                    }
-                    if (neighborCoordinate.Count > 2)
-                    {
-                        StartPipe = maps[y][x];
-                    }
+                    }                    
                 }
             }
 
-            return StartPipe;
+            return maps;
         }
         public List<List<Pipe>> NewNeighbor(List<List<int>> neighborCoordinate, List<List<Pipe>>  maps,int y,int x, int i)
         {
