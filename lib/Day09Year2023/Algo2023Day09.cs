@@ -9,6 +9,10 @@ namespace Lib.Day08Year2023
 {
     public class Algo2023Day09 : IAlgo
     {     
+        public int Getday()
+        {
+            return 9;
+        }
         private readonly ReportBuilder reportBuilder;
         private readonly Predictor predictor;
         public Algo2023Day09()

@@ -2,6 +2,10 @@
 
 public class Algo2023Day01 : IAlgo
 {
+    public int Getday()
+    {
+        return 1;
+    }
     public string Solve(string[] input, bool isBonus = false){
 
         List<int> numbers = new List<int>();

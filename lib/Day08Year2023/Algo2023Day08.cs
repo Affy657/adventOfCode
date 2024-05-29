@@ -11,6 +11,10 @@ namespace Lib.Day08Year2023
 {
     public class Algo2023Day08 : IAlgo
     {
+        public int Getday()
+        {
+            return 8;
+        }
         private readonly Path path;
         private readonly NetWork netWork;
         private readonly Navigator navigator;

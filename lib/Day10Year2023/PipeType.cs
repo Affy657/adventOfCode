@@ -41,4 +41,12 @@ namespace Lib.Day10Year2023
         /// </summary>
         public const char STARTING_PIPE = 'S';
     }
+    public class DirectionType
+    {
+        public const string TO_TOP = "TO_TOP";
+        public const string TO_BOTTOM = "TO_BOTTOM";
+        public const string TO_RIGHT = "TO_RIGHT";
+        public const string TO_LEFT = "TO_LEFT";
+
+    }
 }
