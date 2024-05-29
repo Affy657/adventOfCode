@@ -8,8 +8,10 @@ namespace Lib.Day06Year2023
 {
     internal class Algo2023Day06 : IAlgo
     {
-
-
+        public int Getday()
+        {
+            return 6;
+        }
         public string Solve(string[] input, bool isBonus = false)
         {
             RaceRecordBuilder builder = new RaceRecordBuilder();

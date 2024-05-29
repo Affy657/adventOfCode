@@ -9,7 +9,11 @@ using System.Threading.Tasks;
 namespace Lib
 {
     internal class Algo2023Day03 : IAlgo
-    {      
+    {
+        public int Getday()
+        {
+            return 3;
+        }
 
         public string Solve(string[] input, bool isBonus = false)
         {

@@ -18,6 +18,11 @@ namespace Lib
         private const int cubeTwoValue = 13;
         private const int cubeThreeValue = 14;
 
+        public int Getday()
+        {
+            return 2;
+        }
+
         public string Solve(string[] input, bool isBonus = false)
         {
             return isBonus ? Bonus(input) : Standard(input);

@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib", "lib\Lib.csproj", "{E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{478257C5-1D3E-418D-A6E0-754178491E8A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{E836C09C-85E9-4C72-9D6A-3568EB89D108}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{478257C5-1D3E-418D-A6E0-754178491E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{478257C5-1D3E-418D-A6E0-754178491E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{478257C5-1D3E-418D-A6E0-754178491E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E836C09C-85E9-4C72-9D6A-3568EB89D108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E836C09C-85E9-4C72-9D6A-3568EB89D108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E836C09C-85E9-4C72-9D6A-3568EB89D108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E836C09C-85E9-4C72-9D6A-3568EB89D108}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

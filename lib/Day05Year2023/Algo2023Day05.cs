@@ -14,6 +14,10 @@ namespace Lib.Day05Year2023
 {
     internal class Algo2023Day05 : IAlgo
     {
+        public int Getday()
+        {
+            return 5;
+        }
         public string Solve(string[] input, bool isBonus = false)
         {
             SeedsBuilder seedsBuilder = new(input, isBonus);
