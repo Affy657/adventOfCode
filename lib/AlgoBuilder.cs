@@ -12,53 +12,33 @@ public class AlgoBuilder
 {
     public int Year { get; set; }
     public int Day { get; set; }
-    public AlgoBuilder(int year, int day)
+    public bool Bonus { get; set; }
+    public AlgoBuilder(int year, int day, bool bonus)
     {
         this.Year = year;
         this.Day = day;
+        Bonus = bonus;
     }
 
     public IAlgo Build()
     {
-        if(this.Year == 2023 && this.Day == 1){
-            return new Algo2023Day01();
-        }
-        else if(this.Year == 2023 && this.Day == 2){
-            return new Algo2023Day02();
-        }
-        else if (this.Year == 2023 && this.Day == 3)
+        List<IAlgo> algos = new()
         {
-            return new Algo2023Day03();
-        }
-        else if (this.Year == 2023 && this.Day == 4)
-        {
-            return new Algo2023Day04();
-        }
-        else if (this.Year == 2023 && this.Day == 5)
-        {
-            return new Algo2023Day05();
-        }
-        else if (this.Year == 2023 && this.Day == 6)
-        {
-            return new Algo2023Day06();
-        }
-        else if (this.Year == 2023 && this.Day == 7)
-        {
-            return new Algo2023Day07();
-        }
-        else if (this.Year == 2023 && this.Day == 8)
-        {
-            return new Algo2023Day08();
-        }
-        else if (this.Year == 2023 && this.Day == 9)
-        {
-            return new Algo2023Day09();
-        }
-        else if (this.Year == 2023 && this.Day == 10)
-        {
-            return new Algo2023Day10();
-        }
-
-        return new Algo2023Day01();
-    }
+            new Algo2023Day01(),
+            new Algo2023Day02(),
+            new Algo2023Day03(),
+            new Algo2023Day04(),
+            new Algo2023Day05(),
+            new Algo2023Day06(),
+            new Algo2023Day07(),
+            new Algo2023Day08(),
+            new Algo2023Day09(),
+            new Algo2023Day10()
+        };
+        return algos.FirstOrDefault(algo => 
+        algo.GetYearAndDayAndBonus().Year == this.Year &&
+        algo.GetYearAndDayAndBonus().Day == this.Day
+        );
+        
+    } 
 }

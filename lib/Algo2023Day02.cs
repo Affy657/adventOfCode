@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static Lib.IAlgo;
 
 namespace Lib
 {
@@ -18,10 +19,7 @@ namespace Lib
         private const int cubeTwoValue = 13;
         private const int cubeThreeValue = 14;
 
-        public int Getday()
-        {
-            return 2;
-        }
+        public YearAndDayAndBonus GetYearAndDayAndBonus() => new() { Year = 2023, Day = 2, Bonus = true };
 
         public string Solve(string[] input, bool isBonus = false)
         {

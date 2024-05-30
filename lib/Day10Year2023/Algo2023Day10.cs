@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Lib.IAlgo;
 
 namespace Lib.Day10Year2023
 {
     public class Algo2023Day10 : IAlgo
     {
-        public int Getday()
-        {
-            return 10;
-        }
+        public YearAndDayAndBonus GetYearAndDayAndBonus() => new() { Year = 2023, Day = 10, Bonus = false };
         public readonly MapsBuilder MapsBuilder;
         public readonly Navigator Navigator;
 

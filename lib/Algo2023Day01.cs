@@ -1,11 +1,12 @@
-﻿namespace Lib;
+﻿using static Lib.IAlgo;
+
+namespace Lib;
 
 public class Algo2023Day01 : IAlgo
 {
-    public int Getday()
-    {
-        return 1;
-    }
+    public YearAndDayAndBonus GetYearAndDayAndBonus() => new() { Year = 2023, Day = 1, Bonus = true };
+   
+
     public string Solve(string[] input, bool isBonus = false){
 
         List<int> numbers = new List<int>();

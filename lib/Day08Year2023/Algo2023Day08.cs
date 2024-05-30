@@ -6,15 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Xml.Linq;
+using static Lib.IAlgo;
 
 namespace Lib.Day08Year2023
 {
     public class Algo2023Day08 : IAlgo
     {
-        public int Getday()
-        {
-            return 8;
-        }
+        public YearAndDayAndBonus GetYearAndDayAndBonus() => new() { Year = 2023, Day = 8, Bonus = false };
         private readonly Path path;
         private readonly NetWork netWork;
         private readonly Navigator navigator;

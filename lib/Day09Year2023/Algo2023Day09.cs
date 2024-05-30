@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Lib.IAlgo;
 
 namespace Lib.Day08Year2023
 {
     public class Algo2023Day09 : IAlgo
-    {     
-        public int Getday()
-        {
-            return 9;
-        }
+    {
+        public YearAndDayAndBonus GetYearAndDayAndBonus() => new() { Year = 2023, Day = 9, Bonus = true };
         private readonly ReportBuilder reportBuilder;
         private readonly Predictor predictor;
         public Algo2023Day09()

@@ -26,17 +26,11 @@ namespace API.Controllers
 
         }
 
-        // GET api/<Solutions>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST api/<Solutions>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public int Post( int year, int day, bool bonus = false)
         {
+            return 0;
         }
 
     }

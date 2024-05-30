@@ -4,15 +4,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Lib.IAlgo;
 
 namespace Lib.Day04Year2023
 {
     internal class Algo2023Day04 : IAlgo
     {
-        public int Getday()
-        {
-            return 4;
-        }
+        public YearAndDayAndBonus GetYearAndDayAndBonus() => new() { Year = 2023, Day = 4, Bonus = true };
         public string Solve(string[] input, bool isBonus = false)
         {
             return isBonus ? bonus(input) : standard(input);

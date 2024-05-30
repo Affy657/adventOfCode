@@ -5,15 +5,13 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static Lib.IAlgo;
 
 namespace Lib
 {
     internal class Algo2023Day03 : IAlgo
     {
-        public int Getday()
-        {
-            return 3;
-        }
+        public YearAndDayAndBonus GetYearAndDayAndBonus() => new() { Year = 2023, Day = 3, Bonus = true };
 
         public string Solve(string[] input, bool isBonus = false)
         {

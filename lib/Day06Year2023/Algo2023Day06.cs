@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Lib.IAlgo;
 
 namespace Lib.Day06Year2023
 {
     internal class Algo2023Day06 : IAlgo
     {
-        public int Getday()
-        {
-            return 6;
-        }
+        public YearAndDayAndBonus GetYearAndDayAndBonus() => new() { Year = 2023, Day = 6, Bonus = true };
         public string Solve(string[] input, bool isBonus = false)
         {
             RaceRecordBuilder builder = new RaceRecordBuilder();

@@ -3,7 +3,7 @@
 string[] data = File.ReadAllLines("input2023Day10.txt");
 
 
-AlgoBuilder builder = new AlgoBuilder(2023, 10);
+AlgoBuilder builder = new AlgoBuilder(2023, 10, false);
 IAlgo algo = builder.Build();
 
 if(algo == null){

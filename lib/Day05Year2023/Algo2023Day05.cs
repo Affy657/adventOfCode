@@ -8,16 +8,14 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Lib.Day05Year2023;
 using Lib;
+using static Lib.IAlgo;
 
 
 namespace Lib.Day05Year2023
 {
     internal class Algo2023Day05 : IAlgo
     {
-        public int Getday()
-        {
-            return 5;
-        }
+        public YearAndDayAndBonus GetYearAndDayAndBonus() => new() { Year = 2023, Day = 5, Bonus = true };
         public string Solve(string[] input, bool isBonus = false)
         {
             SeedsBuilder seedsBuilder = new(input, isBonus);
